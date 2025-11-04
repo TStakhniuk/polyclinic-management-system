@@ -416,3 +416,13 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Configuration files with potentially sensitive data
+App.config
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+
+# Folders with local data or secrets
+secrets.json
+.env

@@ -1,0 +1,308 @@
+﻿<Window x:Class="DistrictPolyclinic.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DistrictPolyclinic"
+        xmlns:page="clr-namespace:DistrictPolyclinic.Pages"
+        xmlns:converters="clr-namespace:DistrictPolyclinic.Converters"
+        mc:Ignorable="d" x:Name="home" 
+        Title="MainMenu" Height="700" Width="1100"
+        MinWidth="920" MinHeight="660"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="Transparent" AllowsTransparency="True"
+        ResizeMode="NoResize" WindowState="Normal" FontFamily="Poppins" StateChanged="Window_StateChanged"
+        MouseDown="Window_MouseDown" MouseMove="Window_MouseMove" MouseUp="Window_MouseUp" Closed="Window_Closed">
+
+    <Window.Resources>
+        <converters:FirstLettersConverter x:Key="FirstLettersConverter"/>
+        <converters:RoleToBrushConverter x:Key="RoleToBrushConverter"/>
+
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="MinHeight" Value="40"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8 4"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EEE"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#DDD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Window.Resources>
+
+    <Border  x:Name="WindowBorder" CornerRadius="10" Background="{DynamicResource PrimaryBackgroundColor}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Start: GridColumn Left -->
+            <Border x:Name="WindowBorderLeft" CornerRadius="10 0 0 10"
+                    Padding="10"
+                    Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid x:Name="gridMenu">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <!-- logo -->
+                        <RowDefinition Height="*" />
+                        <!-- menu -->
+                        <RowDefinition Height="Auto" />
+                        <!-- user icon -->
+                        <RowDefinition Height="Auto" />
+                        <!-- topic switcher -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Logo -->
+                    <StackPanel Grid.Row="0" Orientation= "Horizontal" >
+                        <Image Source="/Images/logo.png" Stretch= "Fill" Height= "65" Width= "65" VerticalAlignment= "Center" Margin= "-3 0 0 0" />
+                        <Label Content= "MedicalCare" Foreground= "{DynamicResource SecundaryBlueColor}" FontWeight= "Bold" FontSize= "26" VerticalAlignment= "Center" HorizontalContentAlignment= "Left" HorizontalAlignment= "Left" Margin= "-5 9 0 0" />
+                    </StackPanel>
+
+                    <!-- Button panel wrapped in ScrollViewer -->
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Grid.Row="1">
+
+                            <!-- MENU Employees-->
+                            <RadioButton x:Name="msEmployees" Content="Працівники" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource users}" Margin="0 30 0 0" Click="msEmployees_Click"/>
+                            <Border x:Name="employeesSubmenuContainer" Height="0"  ClipToBounds="True" Background="Transparent">
+                                <StackPanel x:Name="employeesSubmenu" Margin="20 0 0 0">
+                                    <RadioButton x:Name="AddEmployee" Content="Додати працівника" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource users}" Click="AddEmployee_Click"/>
+                                    <RadioButton x:Name="EditEmployee" Content="Редагувати дані" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource users}" Click="EditEmployee_Click"/>
+                                    <RadioButton x:Name="ListEmployee" Content="Список працівників" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource users}" Click="EmployeeList_Click"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- MENU Patients-->
+                            <RadioButton x:Name="msPatients" Content="Пацієнти" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource user}" Margin="0 1 0 1" Click="msPatients_Click"/>
+                            <Border x:Name="patientsSubmenuContainer" Height="0" ClipToBounds="True" Background="Transparent">
+                                <StackPanel x:Name="patientsSubmenu" Margin="20 0 0 0">
+                                    <RadioButton x:Name="AddPatient" Content="Реєстрація пацієнта" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource user}" Click="AddPatient_Click"/>
+                                    <RadioButton x:Name="EditPatient" Content="Редагувати дані" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource user}" Click="EditPatient_Click"/>
+                                    <RadioButton x:Name="ListPatient" Content="Список пацієнтів" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource user}" Click="PatientList_Click"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- MENU Appointments-->
+                            <RadioButton x:Name="msAppointments" Content="Запис на прийом" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource collections}" Click="msAppointments_Click"/>
+
+                            <!-- MENU Consultations-->
+                            <RadioButton x:Name="msConsultations" Content="Прийом пацієнта" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource messages}" Margin="0 1 0 1" Click="msConsultations_Click"/>
+                            <Border x:Name="consultationsSubmenuContainer" Height="0" ClipToBounds="True" Background="Transparent">
+                                <StackPanel x:Name="consultationsSubmenu" Margin="20 0 0 0">
+                                    <RadioButton x:Name="ResultAppointment" Content="Результати прийому" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource messages}" Click="ResultAppointment_Click"/>
+                                    <RadioButton x:Name="ShowCard" Content="Перегляд картки" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource messages}" Click="MedicalCard_Click"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- MENU Reports-->
+                            <RadioButton x:Name="msReports" Content="Звіти" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource analytics}" Click="msReports_Click"/>
+                            <Border x:Name="reportsSubmenuContainer" Height="0" ClipToBounds="True" Background="Transparent">
+                                <StackPanel x:Name="reportsSubmenu" Margin="20 0 0 0">
+                                    <RadioButton x:Name="MedicalCard" Content="Медична картка" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource analytics}" Click="ReportMedicalCard_Click"/>
+                                    <RadioButton x:Name="AppointmentPeriod" Content="Прийоми за період" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource analytics}" Click="ReportAppointmentPeriod_Click"/>
+                                    <RadioButton x:Name="MedicinesUsed" Content="Застосовані медикаменти" Style="{DynamicResource MenuRadioSubButtonStyle}" Tag="{DynamicResource analytics}" Click="ReportMedicinesUsed_Click"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- SEPARATOR -->
+                            <Separator Margin="20 20" Background="{DynamicResource TertiaryBackgroundColor}"/>
+
+                            <!-- SINGLE MENUS -->
+                            <RadioButton x:Name="msNews" Content="Новини" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource notifications}" Margin="0 1 0 1" Click="msNews_Click"/>
+                            <RadioButton x:Name="msAssistant" Content="Асистент" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource assistant}" Margin="0 1 0 1" Click="msAssistant_Click"/>
+
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 10 0 20">
+
+                       
+                        <Border CornerRadius="18" Width="35" Height="35"
+            BorderBrush="{DynamicResource TertiaryTextColor}" 
+            BorderThickness="2"
+            Background="{Binding Role, Converter={StaticResource RoleToBrushConverter}}"
+            VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding FullName, Converter={StaticResource FirstLettersConverter}}"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   FontSize="15" Foreground="White"/>
+                        </Border>
+
+                        <!-- Initials -->
+                        <TextBlock Text="{Binding FullName}"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Foreground="{DynamicResource PrimaryTextColor}"
+               Margin="10 0 0 0" FontSize="14" FontWeight="SemiBold"/>
+
+
+                        <!-- Three dots icon for menu -->
+                        <Button Background="Transparent"
+        BorderThickness="0"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="10 0 0 0"
+        Click="UserMenuButton_Click"
+        Focusable="False"
+        Cursor="Hand">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{x:Null}">
+                                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}" Width="10">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Content>
+                                <Path Fill="{DynamicResource TertiaryTextColor}"
+              Data="{DynamicResource menu}"
+              Width="24" Height="24"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"/>
+                            </Button.Content>
+
+                            <Button.ToolTip>
+                                <ToolTip Content="Меню" />
+                            </Button.ToolTip>
+                        </Button>
+
+                        <!-- Popup menu -->
+                        <Popup x:Name="UserPopup"
+                               Placement="Custom"
+                               PlacementTarget="{Binding ElementName=UserMenuButton}"
+                               StaysOpen="False"
+                               AllowsTransparency="True"
+                               PopupAnimation="None"
+                               CustomPopupPlacementCallback="UserPopup_CustomPopupPlacementCallback">
+                            <Border Background="White" 
+                                    BorderBrush="{DynamicResource PopupBorderColor}"
+                                    BorderThickness="1" 
+                                    CornerRadius="8" 
+                                    Padding="5">
+                                <StackPanel>
+                                    <!-- "Change password" button -->
+                                    <Button Style="{StaticResource MenuButtonStyle}" Click="ChangePassword_Click">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Path Data="{DynamicResource password}" 
+                          Width="24" Height="24" Fill="#7e7e7e" Margin="-1 0 10 0"/>
+                                            <TextBlock Text="Змінити пароль" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <!-- Exit button -->
+                                    <Button Style="{StaticResource MenuButtonStyle}" Click="Logout_Click">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Path Data="{DynamicResource logout}" 
+                          Width="24" Height="24" Fill="Red" Margin="0 0 10 0"/>
+                                            <TextBlock Text="Вийти" Foreground="Red" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
+
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0">
+                        <Path
+                      Data="{DynamicResource information}"
+                      Fill="{DynamicResource TertiaryTextColor}"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="0 0 0 7">
+                            <Path.ToolTip>
+                                <ToolTip Content="Для зміни теми інтерфейсу перетягніть повзунок!" />
+                            </Path.ToolTip>
+                        </Path>
+                        <Border CornerRadius="18" Width="110" Height="35" Background="{DynamicResource TertiaryBackgroundColor}" HorizontalAlignment="Right" Margin="50 0 20 7">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Path Data="{DynamicResource moon}" Height="16" Width="16" Stretch="UniformToFill" Fill="{DynamicResource PrimaryWhiteColor}" VerticalAlignment="Center"/>
+                                <ToggleButton x:Name="Themes"
+                              
+                              Click="Themes_Click"
+                              HorizontalAlignment="Right"
+                              Style="{DynamicResource ToggleButtonStyle}"
+                              Margin="10 0 10 0"/>
+                                <Path Data="{DynamicResource sun}" Height="16" Width="16" Stretch="Fill" Fill="{DynamicResource PrimaryYellowColor}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <Border.BitmapEffect>
+                        <DropShadowBitmapEffect
+                                        ShadowDepth="1"
+                                        Direction="0"
+                                        Color="#5B8DEF"
+                                        Softness="0.8"/>
+                    </Border.BitmapEffect>
+                        </Border>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+            <!-- End: GridColumn Left -->
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Background="Transparent" MouseDown="HeaderGrid_MouseDown">
+                    <Border BorderBrush="{DynamicResource TertiaryBackgroundColor}" BorderThickness="0,0,0,1">
+                    </Border>
+                </Grid>
+
+                <!-- Start: Button Close | Restore | Minimize -->
+                <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,1,1,0" Height="23" Orientation="Horizontal" FlowDirection="RightToLeft">
+                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                    <Button x:Name="btnRestore" Margin="5 0" Click="btnRestore_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
+                                <Setter Property="Content" Value="{DynamicResource maximize}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
+                                        <Setter Property="Content" Value="{DynamicResource restore}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
+                </StackPanel>
+                <!-- End: Button Close | Restore | Minimize -->
+
+                <!-- Start: Frame Container -->
+                <Border Grid.Row="1" CornerRadius="0 0 5 0" Background="Transparent">
+                    <Frame x:Name="frameContent" NavigationUIVisibility="Hidden" Margin="25"/>
+                </Border>
+                <!-- End: Frame Container -->
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

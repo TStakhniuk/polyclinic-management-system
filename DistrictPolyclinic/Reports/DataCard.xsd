@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataCard" targetNamespace="http://tempuri.org/DataCard.xsd" xmlns:mstns="http://tempuri.org/DataCard.xsd" xmlns="http://tempuri.org/DataCard.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DistrictPolyclinicConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DistrictPolyclinicConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DistrictPolyclinic.Properties.Settings.GlobalReference.Default.DistrictPolyclinicConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_MedicalCardTableAdapter" GeneratorDataComponentClassName="vw_MedicalCardTableAdapter" Name="vw_MedicalCard" UserDataComponentName="vw_MedicalCardTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DistrictPolyclinicConnectionString (Settings)" DbObjectName="DistrictPolyclinic.dbo.vw_MedicalCard" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID_patient, Last_name, First_name, Patronymic, Gender, Date_birth, Home_address, Phone_number, Email, ID_medical_card, Blood_type, Chronic_diseases, Allergies, Card_start_date, Card_end_date, ID_consultation, Start_date_time, End_date_time, Complaints, Diagnosis, Conclusion, Doctor_name, ATC_code, Drug_name, Release_form, Dosage, Dosage_unit, Quantity_used, Quantity_unit FROM dbo.vw_MedicalCard</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_patient" DataSetColumn="ID_patient" />
+              <Mapping SourceColumn="Last_name" DataSetColumn="Last_name" />
+              <Mapping SourceColumn="First_name" DataSetColumn="First_name" />
+              <Mapping SourceColumn="Patronymic" DataSetColumn="Patronymic" />
+              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
+              <Mapping SourceColumn="Date_birth" DataSetColumn="Date_birth" />
+              <Mapping SourceColumn="Home_address" DataSetColumn="Home_address" />
+              <Mapping SourceColumn="Phone_number" DataSetColumn="Phone_number" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="ID_medical_card" DataSetColumn="ID_medical_card" />
+              <Mapping SourceColumn="Blood_type" DataSetColumn="Blood_type" />
+              <Mapping SourceColumn="Chronic_diseases" DataSetColumn="Chronic_diseases" />
+              <Mapping SourceColumn="Allergies" DataSetColumn="Allergies" />
+              <Mapping SourceColumn="Card_start_date" DataSetColumn="Card_start_date" />
+              <Mapping SourceColumn="Card_end_date" DataSetColumn="Card_end_date" />
+              <Mapping SourceColumn="ID_consultation" DataSetColumn="ID_consultation" />
+              <Mapping SourceColumn="Start_date_time" DataSetColumn="Start_date_time" />
+              <Mapping SourceColumn="End_date_time" DataSetColumn="End_date_time" />
+              <Mapping SourceColumn="Complaints" DataSetColumn="Complaints" />
+              <Mapping SourceColumn="Diagnosis" DataSetColumn="Diagnosis" />
+              <Mapping SourceColumn="Conclusion" DataSetColumn="Conclusion" />
+              <Mapping SourceColumn="Doctor_name" DataSetColumn="Doctor_name" />
+              <Mapping SourceColumn="ATC_code" DataSetColumn="ATC_code" />
+              <Mapping SourceColumn="Drug_name" DataSetColumn="Drug_name" />
+              <Mapping SourceColumn="Release_form" DataSetColumn="Release_form" />
+              <Mapping SourceColumn="Dosage" DataSetColumn="Dosage" />
+              <Mapping SourceColumn="Dosage_unit" DataSetColumn="Dosage_unit" />
+              <Mapping SourceColumn="Quantity_used" DataSetColumn="Quantity_used" />
+              <Mapping SourceColumn="Quantity_unit" DataSetColumn="Quantity_unit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataCard" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataCard" msprop:Generator_DataSetName="DataCard">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vw_MedicalCard" msprop:Generator_RowEvHandlerName="vw_MedicalCardRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_MedicalCardRowDeleted" msprop:Generator_RowDeletingName="vw_MedicalCardRowDeleting" msprop:Generator_RowEvArgName="vw_MedicalCardRowChangeEvent" msprop:Generator_TablePropName="vw_MedicalCard" msprop:Generator_RowChangedName="vw_MedicalCardRowChanged" msprop:Generator_RowChangingName="vw_MedicalCardRowChanging" msprop:Generator_TableClassName="vw_MedicalCardDataTable" msprop:Generator_RowClassName="vw_MedicalCardRow" msprop:Generator_TableVarName="tablevw_MedicalCard" msprop:Generator_UserTableName="vw_MedicalCard">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_patient" msprop:Generator_ColumnPropNameInRow="ID_patient" msprop:Generator_ColumnPropNameInTable="ID_patientColumn" msprop:Generator_ColumnVarNameInTable="columnID_patient" msprop:Generator_UserColumnName="ID_patient">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Last_name" msprop:Generator_ColumnPropNameInRow="Last_name" msprop:Generator_ColumnPropNameInTable="Last_nameColumn" msprop:Generator_ColumnVarNameInTable="columnLast_name" msprop:Generator_UserColumnName="Last_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="First_name" msprop:Generator_ColumnPropNameInRow="First_name" msprop:Generator_ColumnPropNameInTable="First_nameColumn" msprop:Generator_ColumnVarNameInTable="columnFirst_name" msprop:Generator_UserColumnName="First_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Patronymic" msprop:Generator_ColumnPropNameInRow="Patronymic" msprop:Generator_ColumnPropNameInTable="PatronymicColumn" msprop:Generator_ColumnVarNameInTable="columnPatronymic" msprop:Generator_UserColumnName="Patronymic" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date_birth" msprop:Generator_ColumnPropNameInRow="Date_birth" msprop:Generator_ColumnPropNameInTable="Date_birthColumn" msprop:Generator_ColumnVarNameInTable="columnDate_birth" msprop:Generator_UserColumnName="Date_birth" type="xs:dateTime" />
+              <xs:element name="Home_address" msprop:Generator_ColumnPropNameInRow="Home_address" msprop:Generator_ColumnPropNameInTable="Home_addressColumn" msprop:Generator_ColumnVarNameInTable="columnHome_address" msprop:Generator_UserColumnName="Home_address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone_number" msprop:Generator_ColumnPropNameInRow="Phone_number" msprop:Generator_ColumnPropNameInTable="Phone_numberColumn" msprop:Generator_ColumnVarNameInTable="columnPhone_number" msprop:Generator_UserColumnName="Phone_number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_UserColumnName="Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_medical_card" msprop:Generator_ColumnPropNameInRow="ID_medical_card" msprop:Generator_ColumnPropNameInTable="ID_medical_cardColumn" msprop:Generator_ColumnVarNameInTable="columnID_medical_card" msprop:Generator_UserColumnName="ID_medical_card">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Blood_type" msprop:Generator_ColumnPropNameInRow="Blood_type" msprop:Generator_ColumnPropNameInTable="Blood_typeColumn" msprop:Generator_ColumnVarNameInTable="columnBlood_type" msprop:Generator_UserColumnName="Blood_type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Chronic_diseases" msprop:Generator_ColumnPropNameInRow="Chronic_diseases" msprop:Generator_ColumnPropNameInTable="Chronic_diseasesColumn" msprop:Generator_ColumnVarNameInTable="columnChronic_diseases" msprop:Generator_UserColumnName="Chronic_diseases" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Allergies" msprop:Generator_ColumnPropNameInRow="Allergies" msprop:Generator_ColumnPropNameInTable="AllergiesColumn" msprop:Generator_ColumnVarNameInTable="columnAllergies" msprop:Generator_UserColumnName="Allergies" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Card_start_date" msprop:Generator_ColumnPropNameInRow="Card_start_date" msprop:Generator_ColumnPropNameInTable="Card_start_dateColumn" msprop:Generator_ColumnVarNameInTable="columnCard_start_date" msprop:Generator_UserColumnName="Card_start_date" type="xs:dateTime" />
+              <xs:element name="Card_end_date" msprop:Generator_ColumnPropNameInRow="Card_end_date" msprop:Generator_ColumnPropNameInTable="Card_end_dateColumn" msprop:Generator_ColumnVarNameInTable="columnCard_end_date" msprop:Generator_UserColumnName="Card_end_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ID_consultation" msprop:Generator_ColumnPropNameInRow="ID_consultation" msprop:Generator_ColumnPropNameInTable="ID_consultationColumn" msprop:Generator_ColumnVarNameInTable="columnID_consultation" msprop:Generator_UserColumnName="ID_consultation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Start_date_time" msprop:Generator_ColumnPropNameInRow="Start_date_time" msprop:Generator_ColumnPropNameInTable="Start_date_timeColumn" msprop:Generator_ColumnVarNameInTable="columnStart_date_time" msprop:Generator_UserColumnName="Start_date_time" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="End_date_time" msprop:Generator_ColumnPropNameInRow="End_date_time" msprop:Generator_ColumnPropNameInTable="End_date_timeColumn" msprop:Generator_ColumnVarNameInTable="columnEnd_date_time" msprop:Generator_UserColumnName="End_date_time" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Complaints" msprop:Generator_ColumnPropNameInRow="Complaints" msprop:Generator_ColumnPropNameInTable="ComplaintsColumn" msprop:Generator_ColumnVarNameInTable="columnComplaints" msprop:Generator_UserColumnName="Complaints" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Diagnosis" msprop:Generator_ColumnPropNameInRow="Diagnosis" msprop:Generator_ColumnPropNameInTable="DiagnosisColumn" msprop:Generator_ColumnVarNameInTable="columnDiagnosis" msprop:Generator_UserColumnName="Diagnosis" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Conclusion" msprop:Generator_ColumnPropNameInRow="Conclusion" msprop:Generator_ColumnPropNameInTable="ConclusionColumn" msprop:Generator_ColumnVarNameInTable="columnConclusion" msprop:Generator_UserColumnName="Conclusion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Doctor_name" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Doctor_name" msprop:Generator_ColumnPropNameInTable="Doctor_nameColumn" msprop:Generator_ColumnVarNameInTable="columnDoctor_name" msprop:Generator_UserColumnName="Doctor_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ATC_code" msprop:Generator_ColumnPropNameInRow="ATC_code" msprop:Generator_ColumnPropNameInTable="ATC_codeColumn" msprop:Generator_ColumnVarNameInTable="columnATC_code" msprop:Generator_UserColumnName="ATC_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drug_name" msprop:Generator_ColumnPropNameInRow="Drug_name" msprop:Generator_ColumnPropNameInTable="Drug_nameColumn" msprop:Generator_ColumnVarNameInTable="columnDrug_name" msprop:Generator_UserColumnName="Drug_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Release_form" msprop:Generator_ColumnPropNameInRow="Release_form" msprop:Generator_ColumnPropNameInTable="Release_formColumn" msprop:Generator_ColumnVarNameInTable="columnRelease_form" msprop:Generator_UserColumnName="Release_form" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dosage" msprop:Generator_ColumnPropNameInRow="Dosage" msprop:Generator_ColumnPropNameInTable="DosageColumn" msprop:Generator_ColumnVarNameInTable="columnDosage" msprop:Generator_UserColumnName="Dosage" type="xs:int" minOccurs="0" />
+              <xs:element name="Dosage_unit" msprop:Generator_ColumnPropNameInRow="Dosage_unit" msprop:Generator_ColumnPropNameInTable="Dosage_unitColumn" msprop:Generator_ColumnVarNameInTable="columnDosage_unit" msprop:Generator_UserColumnName="Dosage_unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quantity_used" msprop:Generator_ColumnPropNameInRow="Quantity_used" msprop:Generator_ColumnPropNameInTable="Quantity_usedColumn" msprop:Generator_ColumnVarNameInTable="columnQuantity_used" msprop:Generator_UserColumnName="Quantity_used" type="xs:int" minOccurs="0" />
+              <xs:element name="Quantity_unit" msprop:Generator_ColumnPropNameInRow="Quantity_unit" msprop:Generator_ColumnPropNameInTable="Quantity_unitColumn" msprop:Generator_ColumnVarNameInTable="columnQuantity_unit" msprop:Generator_UserColumnName="Quantity_unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

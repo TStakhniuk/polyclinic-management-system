@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataMedicines" targetNamespace="http://tempuri.org/DataMedicines.xsd" xmlns:mstns="http://tempuri.org/DataMedicines.xsd" xmlns="http://tempuri.org/DataMedicines.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DistrictPolyclinicConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DistrictPolyclinicConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DistrictPolyclinic.Properties.Settings.GlobalReference.Default.DistrictPolyclinicConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_AdministeredDrugsTableAdapter" GeneratorDataComponentClassName="vw_AdministeredDrugsTableAdapter" Name="vw_AdministeredDrugs" UserDataComponentName="vw_AdministeredDrugsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DistrictPolyclinicConnectionString (Settings)" DbObjectName="DistrictPolyclinic.dbo.vw_AdministeredDrugs" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID_consultation, Start_date_time, DoctorName, ATC_code, Drug_name, Release_form, Dosage, Dosage_unit, Quantity_used, Quantity_unit FROM dbo.vw_AdministeredDrugs</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_consultation" DataSetColumn="ID_consultation" />
+              <Mapping SourceColumn="Start_date_time" DataSetColumn="Start_date_time" />
+              <Mapping SourceColumn="DoctorName" DataSetColumn="DoctorName" />
+              <Mapping SourceColumn="ATC_code" DataSetColumn="ATC_code" />
+              <Mapping SourceColumn="Drug_name" DataSetColumn="Drug_name" />
+              <Mapping SourceColumn="Release_form" DataSetColumn="Release_form" />
+              <Mapping SourceColumn="Dosage" DataSetColumn="Dosage" />
+              <Mapping SourceColumn="Dosage_unit" DataSetColumn="Dosage_unit" />
+              <Mapping SourceColumn="Quantity_used" DataSetColumn="Quantity_used" />
+              <Mapping SourceColumn="Quantity_unit" DataSetColumn="Quantity_unit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataMedicines" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataMedicines" msprop:Generator_DataSetName="DataMedicines">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vw_AdministeredDrugs" msprop:Generator_RowEvHandlerName="vw_AdministeredDrugsRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_AdministeredDrugsRowDeleted" msprop:Generator_RowDeletingName="vw_AdministeredDrugsRowDeleting" msprop:Generator_RowEvArgName="vw_AdministeredDrugsRowChangeEvent" msprop:Generator_TablePropName="vw_AdministeredDrugs" msprop:Generator_RowChangedName="vw_AdministeredDrugsRowChanged" msprop:Generator_RowChangingName="vw_AdministeredDrugsRowChanging" msprop:Generator_TableClassName="vw_AdministeredDrugsDataTable" msprop:Generator_RowClassName="vw_AdministeredDrugsRow" msprop:Generator_TableVarName="tablevw_AdministeredDrugs" msprop:Generator_UserTableName="vw_AdministeredDrugs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_consultation" msprop:Generator_ColumnPropNameInRow="ID_consultation" msprop:Generator_ColumnPropNameInTable="ID_consultationColumn" msprop:Generator_ColumnVarNameInTable="columnID_consultation" msprop:Generator_UserColumnName="ID_consultation">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Start_date_time" msprop:Generator_ColumnPropNameInRow="Start_date_time" msprop:Generator_ColumnPropNameInTable="Start_date_timeColumn" msprop:Generator_ColumnVarNameInTable="columnStart_date_time" msprop:Generator_UserColumnName="Start_date_time" type="xs:dateTime" />
+              <xs:element name="DoctorName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="DoctorName" msprop:Generator_ColumnPropNameInTable="DoctorNameColumn" msprop:Generator_ColumnVarNameInTable="columnDoctorName" msprop:Generator_UserColumnName="DoctorName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ATC_code" msprop:Generator_ColumnPropNameInRow="ATC_code" msprop:Generator_ColumnPropNameInTable="ATC_codeColumn" msprop:Generator_ColumnVarNameInTable="columnATC_code" msprop:Generator_UserColumnName="ATC_code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drug_name" msprop:Generator_ColumnPropNameInRow="Drug_name" msprop:Generator_ColumnPropNameInTable="Drug_nameColumn" msprop:Generator_ColumnVarNameInTable="columnDrug_name" msprop:Generator_UserColumnName="Drug_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Release_form" msprop:Generator_ColumnPropNameInRow="Release_form" msprop:Generator_ColumnPropNameInTable="Release_formColumn" msprop:Generator_ColumnVarNameInTable="columnRelease_form" msprop:Generator_UserColumnName="Release_form">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dosage" msprop:Generator_ColumnPropNameInRow="Dosage" msprop:Generator_ColumnPropNameInTable="DosageColumn" msprop:Generator_ColumnVarNameInTable="columnDosage" msprop:Generator_UserColumnName="Dosage" type="xs:int" />
+              <xs:element name="Dosage_unit" msprop:Generator_ColumnPropNameInRow="Dosage_unit" msprop:Generator_ColumnPropNameInTable="Dosage_unitColumn" msprop:Generator_ColumnVarNameInTable="columnDosage_unit" msprop:Generator_UserColumnName="Dosage_unit">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quantity_used" msprop:Generator_ColumnPropNameInRow="Quantity_used" msprop:Generator_ColumnPropNameInTable="Quantity_usedColumn" msprop:Generator_ColumnVarNameInTable="columnQuantity_used" msprop:Generator_UserColumnName="Quantity_used" type="xs:int" />
+              <xs:element name="Quantity_unit" msprop:Generator_ColumnPropNameInRow="Quantity_unit" msprop:Generator_ColumnPropNameInTable="Quantity_unitColumn" msprop:Generator_ColumnVarNameInTable="columnQuantity_unit" msprop:Generator_UserColumnName="Quantity_unit">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vw_AdministeredDrugs" />
+      <xs:field xpath="mstns:ID_consultation" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

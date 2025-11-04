@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataAppointment" targetNamespace="http://tempuri.org/DataAppointment.xsd" xmlns:mstns="http://tempuri.org/DataAppointment.xsd" xmlns="http://tempuri.org/DataAppointment.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DistrictPolyclinicConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DistrictPolyclinicConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DistrictPolyclinic.Properties.Settings.GlobalReference.Default.DistrictPolyclinicConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_DoctorAppointmentsTableAdapter" GeneratorDataComponentClassName="vw_DoctorAppointmentsTableAdapter" Name="vw_DoctorAppointments" UserDataComponentName="vw_DoctorAppointmentsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DistrictPolyclinicConnectionString (Settings)" DbObjectName="DistrictPolyclinic.dbo.vw_DoctorAppointments" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DoctorID, DoctorName, Specialization, ConsultationID, StartDate, EndDate, PatientName, MedicalCardNumber, AppointmentCount FROM dbo.vw_DoctorAppointments</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DoctorID" DataSetColumn="DoctorID" />
+              <Mapping SourceColumn="DoctorName" DataSetColumn="DoctorName" />
+              <Mapping SourceColumn="Specialization" DataSetColumn="Specialization" />
+              <Mapping SourceColumn="ConsultationID" DataSetColumn="ConsultationID" />
+              <Mapping SourceColumn="StartDate" DataSetColumn="StartDate" />
+              <Mapping SourceColumn="EndDate" DataSetColumn="EndDate" />
+              <Mapping SourceColumn="PatientName" DataSetColumn="PatientName" />
+              <Mapping SourceColumn="MedicalCardNumber" DataSetColumn="MedicalCardNumber" />
+              <Mapping SourceColumn="AppointmentCount" DataSetColumn="AppointmentCount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataAppointment" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataAppointment" msprop:Generator_DataSetName="DataAppointment">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vw_DoctorAppointments" msprop:Generator_RowEvHandlerName="vw_DoctorAppointmentsRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_DoctorAppointmentsRowDeleted" msprop:Generator_RowDeletingName="vw_DoctorAppointmentsRowDeleting" msprop:Generator_RowEvArgName="vw_DoctorAppointmentsRowChangeEvent" msprop:Generator_TablePropName="vw_DoctorAppointments" msprop:Generator_RowChangedName="vw_DoctorAppointmentsRowChanged" msprop:Generator_RowChangingName="vw_DoctorAppointmentsRowChanging" msprop:Generator_TableClassName="vw_DoctorAppointmentsDataTable" msprop:Generator_RowClassName="vw_DoctorAppointmentsRow" msprop:Generator_TableVarName="tablevw_DoctorAppointments" msprop:Generator_UserTableName="vw_DoctorAppointments">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DoctorID" msprop:Generator_ColumnPropNameInRow="DoctorID" msprop:Generator_ColumnPropNameInTable="DoctorIDColumn" msprop:Generator_ColumnVarNameInTable="columnDoctorID" msprop:Generator_UserColumnName="DoctorID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DoctorName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="DoctorName" msprop:Generator_ColumnPropNameInTable="DoctorNameColumn" msprop:Generator_ColumnVarNameInTable="columnDoctorName" msprop:Generator_UserColumnName="DoctorName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Specialization" msprop:Generator_ColumnPropNameInRow="Specialization" msprop:Generator_ColumnPropNameInTable="SpecializationColumn" msprop:Generator_ColumnVarNameInTable="columnSpecialization" msprop:Generator_UserColumnName="Specialization">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ConsultationID" msprop:Generator_ColumnPropNameInRow="ConsultationID" msprop:Generator_ColumnPropNameInTable="ConsultationIDColumn" msprop:Generator_ColumnVarNameInTable="columnConsultationID" msprop:Generator_UserColumnName="ConsultationID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StartDate" msprop:Generator_ColumnPropNameInRow="StartDate" msprop:Generator_ColumnPropNameInTable="StartDateColumn" msprop:Generator_ColumnVarNameInTable="columnStartDate" msprop:Generator_UserColumnName="StartDate" type="xs:dateTime" />
+              <xs:element name="EndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_UserColumnName="EndDate" type="xs:dateTime" />
+              <xs:element name="PatientName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PatientName" msprop:Generator_ColumnPropNameInTable="PatientNameColumn" msprop:Generator_ColumnVarNameInTable="columnPatientName" msprop:Generator_UserColumnName="PatientName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MedicalCardNumber" msprop:Generator_ColumnPropNameInRow="MedicalCardNumber" msprop:Generator_ColumnPropNameInTable="MedicalCardNumberColumn" msprop:Generator_ColumnVarNameInTable="columnMedicalCardNumber" msprop:Generator_UserColumnName="MedicalCardNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AppointmentCount" msprop:Generator_ColumnPropNameInRow="AppointmentCount" msprop:Generator_ColumnPropNameInTable="AppointmentCountColumn" msprop:Generator_ColumnVarNameInTable="columnAppointmentCount" msprop:Generator_UserColumnName="AppointmentCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

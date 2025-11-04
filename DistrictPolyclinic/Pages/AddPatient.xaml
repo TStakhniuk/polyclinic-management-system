@@ -1,0 +1,269 @@
+﻿<Page x:Class="DistrictPolyclinic.Pages.AddPatient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:DistrictPolyclinic.Pages"
+      xmlns:services="clr-namespace:DistrictPolyclinic.Services"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="AddPatient" FontFamily="Poppins">
+
+    <Page.Resources>
+        <Style x:Key="StandardTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryTextColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StandardComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="StandardTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="StandardButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="Green"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DatePickerTextBox">
+                        <Grid>
+                            <Grid.Resources>
+                                <SolidColorBrush x:Key="WatermarkBrush" Color="#FFAAAAAA"/>
+                            </Grid.Resources>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0" />
+                                        <VisualTransition To="MouseOver" GeneratedDuration="0:0:0.1" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState Name="Normal" />
+                                    <VisualState Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="ContentElement" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#FF99C1E2" Duration="0"/>
+                                            <ColorAnimation Storyboard.TargetName="watermark_decorator" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#FF99C1E2" Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup Name="WatermarkStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState Name="Unwatermarked" />
+                                    <VisualState Name="Watermarked">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="ContentElement" Storyboard.TargetProperty="Opacity" To="0" Duration="0" />
+                                            <DoubleAnimation Storyboard.TargetName="PART_Watermark" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup Name="FocusStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState Name="Unfocused" />
+                                    <VisualState Name="Focused">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+
+                            <Border x:Name="Border" 
+                            Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            CornerRadius="1" 
+                            Opacity="1">
+                                <Grid x:Name="WatermarkContent"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <Border x:Name="ContentElement" BorderThickness="1">
+                                        <Border.BorderBrush>
+                                            <SolidColorBrush Color="#FFFFFFFF"/>
+                                        </Border.BorderBrush>
+                                    </Border>
+                                    <Border x:Name="watermark_decorator" BorderThickness="1">
+                                        <Border.BorderBrush>
+                                            <SolidColorBrush Color="#FFFFFFFF"/>
+                                        </Border.BorderBrush>
+                                        <ContentControl x:Name="PART_Watermark"
+                                                    Opacity="0"
+                                                    Focusable="False"
+                                                    IsHitTestVisible="False"
+                                                    Padding="2">
+                                            <ContentControl.Template>
+                                                <ControlTemplate>
+                                                    <TextBlock Text="Оберіть дату народження" Foreground="Gray" />
+                                                </ControlTemplate>
+                                            </ContentControl.Template>
+                                        </ContentControl>
+                                    </Border>
+                                    <ScrollViewer x:Name="PART_ContentHost" 
+                                          Margin="0"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                    <Border x:Name="FocusVisual" BorderBrush="#FF45D6FA" CornerRadius="1" Opacity="0" IsHitTestVisible="False"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}" Padding="20">
+    <Viewbox Stretch="Uniform">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Main part -->
+            <StackPanel Grid.Row="0">
+                <Label Content="Реєстрація пацієнта" FontSize="35" FontWeight="Bold" 
+                       Foreground="{DynamicResource PrimaryTextColor}" 
+                       HorizontalAlignment="Center" Margin="0 0 0 10"/>
+
+                <Separator Margin="0 0 0 20" Background="{DynamicResource TertiaryBackgroundColor}" Height="1"/>
+
+                <Grid MinWidth="775">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Left side -->
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Ідентифікаційний код" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                        <TextBox x:Name="txtIdCode" Style="{StaticResource StandardTextBoxStyle}" 
+                           services:TextBoxPlaceholderService.Placeholder="Введіть ідентифікаційний код" Margin="0 0 0 20"/>
+
+                        <TextBlock Text="ПІБ пацієнта" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                        <TextBox x:Name="txtFullName" Style="{StaticResource StandardTextBoxStyle}" 
+                         services:TextBoxPlaceholderService.Placeholder="Введіть ПІБ пацієнта" Margin="0 0 0 20"/>
+
+                        <TextBlock Text="Дата народження" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                        <DatePicker x:Name="dpBirthDate" Margin="0 0 0 20"
+                        SelectedDateFormat="Short"
+                        Background="White"
+                        BorderBrush="{DynamicResource PrimaryTextColor}" 
+                        BorderThickness="1"
+                        />
+
+                        <TextBlock Text="Домашня адреса" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                        <TextBox x:Name="txtAddress" Style="{StaticResource StandardTextBoxStyle}" 
+                            services:TextBoxPlaceholderService.Placeholder="Введіть домашню адресу" Margin="0 0 0 20"/>
+
+                        <TextBlock Text="Номер телефону" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                        <TextBox x:Name="txtPhone" Style="{StaticResource StandardTextBoxStyle}" 
+                        services:TextBoxPlaceholderService.Placeholder="Введіть номер телефону" Margin="0 0 0 20"/>
+
+                        <TextBlock Text="Електронна пошта" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                        <TextBox x:Name="txtEmail" Style="{StaticResource StandardTextBoxStyle}" 
+                         services:TextBoxPlaceholderService.Placeholder="Введіть електронну пошту" Margin="0 0 0 20"/>
+                    </StackPanel>
+
+                    <!-- Right side -->
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Стать пацієнта" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                            <ComboBox x:Name="cmbGender" services:ComboBoxPlaceholderService.Placeholder="Оберіть стать пацієнта" Style="{StaticResource StandardComboBoxStyle}" Margin="0 0 0 15">
+                            <ComboBoxItem Content="Чоловік"/>
+                            <ComboBoxItem Content="Жінка"/>
+                        </ComboBox>
+                        
+                        <TextBlock Text="Дані для медичної картки" FontWeight="Bold" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" HorizontalAlignment="Center" Margin="0 0 0 15" />
+                        <Separator Margin="0 0 0 20" Background="{DynamicResource TertiaryBackgroundColor}" Height="1"/>
+
+                        <TextBlock Text="Група крові" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                            <ComboBox x:Name="cmbBloodGroup" services:ComboBoxPlaceholderService.Placeholder="Оберіть групу крові пацієнта" Style="{StaticResource StandardComboBoxStyle}" Margin="0 0 0 15">
+                            <ComboBoxItem Content="I (0) Rh+" />
+                            <ComboBoxItem Content="I (0) Rh−" />
+                            <ComboBoxItem Content="II (A) Rh+" />
+                            <ComboBoxItem Content="II (A) Rh−" />
+                            <ComboBoxItem Content="III (B) Rh+" />
+                            <ComboBoxItem Content="III (B) Rh−" />
+                            <ComboBoxItem Content="IV (AB) Rh+" />
+                            <ComboBoxItem Content="IV (AB) Rh−" />
+                        </ComboBox>
+
+                        <TextBlock Text="Хронічні захворювання" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                            <TextBox x:Name="txtChronicDiseases" Height="75" services:TextBoxPlaceholderServiceBig.Placeholder="Введіть хронічні захворювання пацієнта" Style="{StaticResource StandardTextBoxStyle}" VerticalContentAlignment="Top" TextWrapping="Wrap" MaxWidth="368" Margin="0 0 0 13"/>
+
+                        <TextBlock Text="Алергії" Style="{StaticResource StandardTextBlockStyle}" Margin="0 0 0 5"/>
+                            <TextBox x:Name="txtAllergies" Height="75"  services:TextBoxPlaceholderServiceBig.Placeholder="Введіть наявні алергії пацієнта" Style="{StaticResource StandardTextBoxStyle}" VerticalContentAlignment="Top" TextWrapping="Wrap" MaxWidth="368" Margin="0 0 0 15"/>
+                    </StackPanel>
+                </Grid>
+                <Separator Margin="0 -10 0 0" Background="{DynamicResource TertiaryBackgroundColor}" Height="1"/>
+            </StackPanel>
+
+
+            <!-- Button row -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Скасувати" FontSize="17" 
+                        Background="White" Foreground="Black" 
+                        FontWeight="Bold" Padding="10 5" Margin="0 15 0 0" 
+                        HorizontalAlignment="Left" Width="135" Height="35" Style="{StaticResource StandardButtonStyle}"
+                        Click="CancelButton_Click"/>
+
+                <Button Grid.Column="1" Content="Реєстрація" FontSize="17" 
+                        Background="#00308F" Foreground="White" 
+                        FontWeight="Bold" Padding="10 5" Margin="0 15 0 0" 
+                        HorizontalAlignment="Right" Width="135" Height="35" Style="{StaticResource StandardButtonStyle}"
+                        Click="RegistrationButton_Click"/>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Border>
+</Page>

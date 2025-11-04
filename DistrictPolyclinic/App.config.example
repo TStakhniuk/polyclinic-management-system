@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <section name="DistrictPolyclinic.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+	<appSettings>
+		<add key="ApiBaseUrl" value="http://localhost:11434/" />
+		<add key="SmtpHost" value="smtp.your-provider.com" />
+		<add key="SmtpPort" value="587" />
+		<add key="SmtpUser" value="your-email@example.com" />
+		<add key="SmtpPassword" value="YOUR_EMAIL_APP_PASSWORD" />
+	</appSettings>
+	<connectionStrings>
+        <add name="DistrictPolyclinic.Properties.Settings.DistrictPolyclinicConnectionString"
+             connectionString="Data Source=localhost;Initial Catalog=DistrictPolyclinic;Persist Security Info=True;User ID=YOUR_DB_USER;Password=YOUR_DB_PASSWORD;TrustServerCertificate=True"
+             providerName="System.Data.SqlClient" />
+	</connectionStrings>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+    </startup>
+    <userSettings>
+        <DistrictPolyclinic.Properties.Settings>
+            <setting name="UserTheme" serializeAs="String">
+                <value />
+            </setting>
+        </DistrictPolyclinic.Properties.Settings>
+    </userSettings>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.SqlServer.Types" publicKeyToken="89845dcd8080cc91" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-11.0.0.0" newVersion="11.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.ReportViewer.WinForms" publicKeyToken="89845dcd8080cc91" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-11.0.0.0" newVersion="11.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.ReportViewer.DataVisualization" publicKeyToken="89845dcd8080cc91" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-15.0.0.0" newVersion="15.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>
